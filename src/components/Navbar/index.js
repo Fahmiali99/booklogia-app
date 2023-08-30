@@ -7,17 +7,21 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
 
 function Navbar() {
-  const { isAuthorized } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
+  const { isAuthorized, user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
+  const [drop, setDrop] = useState(false);
 
   const handleOpen = () => {
     setOpen(!open);
   };
 
+  const handleDropdown = () => {
+    setDrop(!drop);
+  };
+
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav className=" bg-warning border-gray-200 dark:bg-gray-900">
       <div className="container  max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div className="flex items-center">
           <Link to="/">
@@ -61,25 +65,60 @@ function Navbar() {
         <div className="hidden md:block lg:flex items-center">
           {isAuthorized ? (
             <div className="relative">
-              <img
-                alt=""
-                src={profil}
-                height="35"
-                className="bg-light rounded-circle"
-              />
-              <div className="absolute top-0 right-0">
-                <button
-                  className="text-sm text-gray-700 hover:text-gray-900 focus:outline-none"
-                  onClick={() => dispatch(logout())}
+              <button
+                onClick={handleDropdown}
+                id="dropdownAvatarNameButton"
+                data-dropdown-toggle="dropdownAvatarName"
+                className="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0  "
+                type="button"
+              >
+                <span className="sr-only">Open user menu</span>
+                <img
+                  className="w-8 h-8 mr-2 rounded-full"
+                  src={profil}
+                  alt=""
+                  width={50}
+                />
+                {user?.user.nama}
+                <svg
+                  className="w-2.5 h-2.5 ml-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
                 >
-                  Logout
-                </button>
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              <div className="z-10 absolute top-10 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <div className={`${drop ? " block" : " hidden"}`}>
+                  <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <h1 className="font-medium ">{user?.user.nama}</h1>
+                    <h1 className="truncate text-secondary">
+                      {user?.user.email}
+                    </h1>
+                  </div>
+                  <div className="py-2 text-sm text-gray-700 ">
+                    <button
+                      onClick={() => dispatch(logout())}
+                      className="block px-4 w-full text-start py-2 hover:bg-gray-100 "
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
             <div className="h-full flex items-center space-x-2">
               <Link to="/login">
-                <button className="border px-4 py-2 text-dark bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-100 focus:border-orange-100">
+                <button className="border px-6 py-2 text-dark border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-100 focus:border-orange-100">
                   Login
                 </button>
               </Link>
@@ -95,6 +134,7 @@ function Navbar() {
           )}
         </div>
         {/* Mobile */}
+
         <div
           className={`md:hidden lg:hidden w-full  md:w-auto ${
             open ? " block" : " hidden"
@@ -113,22 +153,55 @@ function Navbar() {
                 </Link>
               </li>
             ))}
-            <div className="flex items-center py-2 pl-3 pr-4">
+            <div className="flex items-center py-2 ">
               {isAuthorized ? (
-                <div className="relative">
-                  <img
-                    alt=""
-                    src={profil}
-                    height="35"
-                    className="bg-light rounded-circle"
-                  />
-                  <div className="absolute top-0 right-0">
-                    <button
-                      className="text-sm text-gray-700 hover:text-gray-900 focus:outline-none"
-                      onClick={() => dispatch(logout())}
+                <div className="w-full">
+                  <button
+                    onClick={handleDropdown}
+                    className="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600  md:mr-0  "
+                    type="button"
+                  >
+                    <span className="sr-only">Open user menu</span>
+                    <img
+                      className="w-8 h-8 mr-2 rounded-full focus:outline"
+                      src={profil}
+                      alt=""
+                      width={50}
+                    />
+                    {user?.user.nama}
+                    <svg
+                      className="w-2.5 h-2.5 ml-2.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
                     >
-                      Logout
-                    </button>
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+                  <div className="  top-10 right-0 bg-white  divide-y divide-gray-100 rounded-lg shadow w-full ">
+                    <div className={`${drop ? " block" : " hidden"}`}>
+                      <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <h1 className="font-medium ">{user?.user.nama}</h1>
+                        <h1 className="truncate text-secondary">
+                          {user?.user.email}
+                        </h1>
+                      </div>
+                      <div className="py-2 text-sm text-gray-700 ">
+                        <button
+                          onClick={() => dispatch(logout())}
+                          className="block px-4 w-full text-start py-2 hover:bg-gray-100 "
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ) : (
