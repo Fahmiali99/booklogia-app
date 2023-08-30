@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+// import Tips from "./pages/Tips";
+// import Forum from "./pages/Forum";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
+// import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import Artikel from "./pages/Tips/Detail";
+// import Thread from "./pages/Forum/Detail";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        {/* <ToastContainer /> */}
+        <Navbar />
+        {/* <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/tips" component={Tips} />
+          <Route exact path="/thread" component={Forum} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/tips/:slug" component={Artikel} />
+          <Route path="/thread/:slug" component={Thread} />
+        </Switch> */}
+        <Footer />
+      </Router>
     </div>
   );
 }
