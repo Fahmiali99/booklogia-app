@@ -9,7 +9,7 @@ function Footer() {
     <footer className=" bg-dark text-light py-5">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="col-span-4 lg:col-span-1 md:col-span-1">
+          <div className="col-span-1 lg:col-span-1 md:col-span-1">
             <h5 className="text-uppercase mb-4 font-semibold">Company name</h5>
             <img className="d-block mb-4 mx-auto" src={logo} alt=" " />
           </div>
@@ -83,7 +83,7 @@ function Footer() {
 
                   <button
                     type="button"
-                    className="absolute right-2   focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                    className="absolute right-2   focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 "
                   >
                     Purple
                   </button>
