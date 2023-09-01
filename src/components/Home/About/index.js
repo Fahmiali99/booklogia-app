@@ -10,7 +10,7 @@ const About = () => {
     >
       <div className="flex justify-center container mx-auto max-w-7xl px-4  items-center ">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className=" order-2 lg:order-1">
+          <div className=" order-1 lg:order-1 pt-10 lg:pt-0 ">
             <img
               src={aboutImage}
               className="hidden lg:block img-fluid"
@@ -22,9 +22,9 @@ const About = () => {
               alt=""
             />
           </div>
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2 pl-0 lg:pl-20 pb-10 lg:pb-0">
+          <div className="flex justify-center lg:justify-end order-2 lg:order-2 pl-0 lg:pl-20 pb-10 lg:pb-0">
             <div className=" lg:ps-5 ">
-              <div className="text-center lg:text-start ">
+              <div className="text-center lg:text-start pt-3 lg:pt-0">
                 <h1 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl">
                   Mengenal tentang Booklogia <br /> lebih dalam yuk!
                 </h1>
