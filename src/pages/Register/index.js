@@ -39,15 +39,17 @@ function Register() {
   };
 
   return (
-    <div className="container mx-auto flex items-center max-w-7xl px-4 min-h-[calc(80vh-3rem)]">
+    <div className="container mx-auto flex items-center max-w-7xl px-4 min-h-[calc(100vh-3rem)] lg:min-h-[calc(90vh-3rem)] pb-16 lg:pb-0">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-        <div className="mx-auto md:mx-0">
-          <h1 className="font-semibold text-2xl mb-3">
-            Let's Join With Us and
-          </h1>
-          <h1 className="font-semibold text-2xl mb-3">
-            Make Your Own Reading Buddy !
-          </h1>
+        <div className="lg:pr-10">
+          <div className="py-10">
+            <h1 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl ">
+              Let's Join With Us and
+            </h1>
+            <h1 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl ">
+              Make Your Own Reading Buddy !
+            </h1>
+          </div>
           <form className="form-login space-y-4">
             <div className="form-group">
               <label className="font-semibold" htmlFor="exampleInputusername1">
@@ -88,7 +90,7 @@ function Register() {
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 pt-2">
                 <input
                   type="checkbox"
                   checked={passwordType === "text"}
