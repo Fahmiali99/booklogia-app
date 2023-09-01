@@ -11,16 +11,8 @@ const Hero = () => {
     >
       <div className=" ">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className="lg:w-5/12 order-2">
-            <img src={heroImage} className="hidden lg:block img-fluid" alt="" />
-            <img
-              src={heroImage}
-              className="block lg:hidden img-fluid w-75 mx-auto mb-4 mb-md-5"
-              alt=""
-            />
-          </div>
-          <div className="lg:w-7/12 order-1">
-            <div className="text-center lg:text-left">
+          <div className="lg:w-7/12 order-2 lg:order-1">
+            <div className="text-center lg:text-left pt-3 lg:pt-0">
               <h1
                 data-aos="fade-up"
                 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl  "
@@ -59,6 +51,15 @@ const Hero = () => {
                 <hr className="border-2 border-dark opacity-100 mt-4" />
               </div>
             </div>
+          </div>
+
+          <div className="lg:w-5/12 order-1 lg:order-2">
+            <img src={heroImage} className="hidden lg:block img-fluid" alt="" />
+            <img
+              src={heroImage}
+              className="block lg:hidden img-fluid w-75 mx-auto mb-4 mb-md-5"
+              alt=""
+            />
           </div>
         </div>
       </div>
