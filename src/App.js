@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 // import Tips from "./pages/Tips";
 // import Forum from "./pages/Forum";
@@ -11,6 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import Register from "./pages/Register";
+import Navbar from "./components/Common/navbar";
+import Footer from "./components/Common/footer";
 // import Artikel from "./pages/Tips/Detail";
 // import Thread from "./pages/Forum/Detail";
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <ToastContainer />
         <Navbar />
         <Switch>
-          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           {/* <Route exact path="/tips" component={Tips} />

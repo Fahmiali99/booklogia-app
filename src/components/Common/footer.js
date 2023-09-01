@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/images/logo-1.png";
-import { Link } from "react-router-dom";
+
 import { AiFillHome } from "react-icons/ai";
 import { IoMdMail, IoMdCall } from "react-icons/io";
 
@@ -18,24 +18,24 @@ function Footer() {
             <h5 className="text-uppercase mb-4 font-semibold">Popular</h5>
             <ul className="list-none">
               <li className="mb-3">
-                <Link href="#" className="footer-link">
+                <a href="/" className="footer-a">
                   Becoming by Michelle Obama
-                </Link>
+                </a>
               </li>
               <li className="mb-3">
-                <Link href="#" className="footer-link">
+                <a href="/" className="footer-a">
                   Dear Tomorrow
-                </Link>
+                </a>
               </li>
               <li className="mb-3">
-                <Link href="#" className="footer-link">
+                <a href="/" className="footer-a">
                   Merdeka Sejak Hati
-                </Link>
+                </a>
               </li>
               <li className="mb-3">
-                <Link href="#" className="footer-link">
+                <a href="/" className="footer-a">
                   A Wrinkle in Time
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -53,22 +53,22 @@ function Footer() {
             <h5 className="text-uppercase mb-4 font-semibold">Contact</h5>
             <ul className="list-none">
               <li className="mb-3">
-                <Link href="#" className="flex items-center">
+                <a href="/" className="flex items-center">
                   <AiFillHome className="fas fa-home mr-3 text-white" />
                   <span>Indonesia</span>
-                </Link>
+                </a>
               </li>
               <li className="mb-3">
-                <Link href="#" className="flex items-center">
+                <a href="/" className="flex items-center">
                   <IoMdMail className="fas fa-envelope mr-3 text-white" />
                   <span className="m-lg-1"> booklogia@gmail.com </span>
-                </Link>
+                </a>
               </li>
               <li className="mb-3">
-                <Link href="#" className="flex items-center">
+                <a href="/" className="flex items-center">
                   <IoMdCall className="fas fa-phone mr-3 text-white" />
                   <span className="m-lg-1"> +6282131715623 </span>
-                </Link>
+                </a>
               </li>
               <li className="mb-3">
                 <form
@@ -85,7 +85,7 @@ function Footer() {
                     type="button"
                     className="absolute right-2   focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 "
                   >
-                    Purple
+                    Send
                   </button>
                 </form>
               </li>
@@ -98,27 +98,27 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <span>&copy; 2022 Copyright | </span>
-            <Link className="footer-link" href="https://google.com/">
+            <a className="footer-a" href="https://google.com/">
               BookLogia
-            </Link>
+            </a>
           </div>
 
           <div className="flex space-x-2">
-            <Link className="footer-link" href="https://www.instagram.com/">
+            <a className="footer-a" href="https://www.instagram.com/">
               <i className="fab fa-instagram icon-media-footer"></i>
-            </Link>
+            </a>
 
-            <Link className="footer-link" href="https://www.facebook.com/">
+            <a className="footer-a" href="https://www.facebook.com/">
               <i className="fab fa-facebook-f icon-media-footer"></i>
-            </Link>
+            </a>
 
-            <Link className="footer-link" href="https://twitter.com/">
+            <a className="footer-a" href="https://twitter.com/">
               <i className="fab fa-twitter icon-media-footer"></i>
-            </Link>
+            </a>
 
-            <Link className="footer-link" href="https://google.com/">
+            <a className="footer-a" href="https://google.com/">
               <i className="fab fa-google icon-media-footer"></i>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -14,36 +14,52 @@ function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const isFormValid = email.length > 0 && password.length > 0;
+  const validateForm = () => {
+    return email.length > 0 && password.length > 0;
+  };
 
   const tooglePassword = () => {
-    setPasswordType(passwordType === "password" ? "text" : "password");
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const userData = userdata.find((user) => user.email === email);
+    const dataparse = userdata.map((item) => {
+      return item;
+    });
+
+    const userData = dataparse.find((user) => user.email === email);
 
     if (userData) {
       if (userData.password !== password) {
-        toast.error("Login error: Check password");
+        toast.error("login error periksa Password");
       } else {
         dispatch(login({ user: userData }));
-        toast.success("Login success");
+        toast.success("login success");
         history.push("/");
       }
     } else {
-      toast.error("Login error: Check email");
+      toast.error("login error periksa Email");
     }
   };
 
   return (
-    <div className="container mx-auto flex items-center max-w-7xl px-4 min-h-[calc(80vh-3rem)]">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
-        <div className="mx-auto md:mx-0">
-          <h1 className="text-2xl font-bold mb-3">Let&apos;s Meet Up With</h1>
-          <h1 className="text-2xl font-bold mb-3">Your Reading Buddy !</h1>
+    <div className="container mx-auto flex items-center max-w-7xl px-4 min-h-[calc(100vh-3rem)] lg:min-h-[calc(80vh-3rem)]">
+      <div className="  grid grid-cols-1 md:grid-cols-2 items-center gap-4">
+        <div className="">
+          <div className="py-10 ">
+            <h1 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl ">
+              Let&apos;s Meet Up With
+            </h1>
+            <h1 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl ">
+              Your Reading Buddy !
+            </h1>
+          </div>
           <form className="space-y-4">
             <div>
               <label className="font-semibold" htmlFor="exampleInputEmail1">
@@ -75,7 +91,7 @@ function Login() {
               <div className="flex items-center space-x-2">
                 <input
                   type="checkbox"
-                  checked={passwordType === "text"}
+                  checked={passwordType === "text" ? "checked" : ""}
                   onChange={tooglePassword}
                 />
                 <label className="text-sm">Show Password</label>
@@ -84,11 +100,11 @@ function Login() {
             <input
               type="submit"
               className={`btn btn-danger px-10 py-2.5 ${
-                isFormValid
+                validateForm
                   ? "bg-danger text-white rounded-lg"
                   : "opacity-70 bg-danger text-white rounded-lg"
               }`}
-              disabled={!isFormValid}
+              disabled={!validateForm()}
               value="SIGN IN"
               onClick={handleLogin}
             />
