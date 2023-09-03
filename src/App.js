@@ -2,16 +2,16 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-// import Tips from "./pages/Tips";
+
 // import Forum from "./pages/Forum";
 
-// import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import Register from "./pages/Register";
 import Navbar from "./components/Common/navbar";
 import Footer from "./components/Common/footer";
+import Tips from "./pages/Tips";
 // import Artikel from "./pages/Tips/Detail";
 // import Thread from "./pages/Forum/Detail";
 function App() {
@@ -24,8 +24,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          {/* <Route exact path="/tips" component={Tips} />
-          <Route exact path="/thread" component={Forum} />
+          <Route exact path="/tips" component={Tips} />
+          {/* <Route exact path="/thread" component={Forum} />
           <Route path="/tips/:slug" component={Artikel} />
           <Route path="/thread/:slug" component={Thread} /> */}
         </Switch>

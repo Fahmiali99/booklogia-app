@@ -1,81 +1,94 @@
-import React, { useState } from 'react';
-import '../../sass/pages/_about.scss';
-import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import tipsData from '../../utils/tips.json';
-
+import React, { useMemo, useState } from "react";
+import tipsData from "../../utils/tips.json";
+import { Link } from "react-router-dom";
+import Searching from "../../components/Common/searching";
+import toast from "react-hot-toast";
+import Pagination from "../../components/Common/pagination";
+const PageSize = 6;
 function Tips() {
-    const [tips, setTips] = useState(tipsData);
+  const [filter, setFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filteredArticle, setFilteredArticle] = useState([]);
 
-    function handleSearch(e) {
-        const filterTips = tipsData.filter((tips) => {
-            return tips.judul.toLowerCase().includes(e.target.value.toLowerCase());
-        });
-        setTips(filterTips);
-    }
+  function handleFilterChange(e) {
+    setFilter(e.target.value);
+  }
 
-    return (
-        <section className="padding-y-xxl position-relative  pt-3 pb-5 z-index-1">
-            <Container className=" max-width-adaptive-sm position-relative z-index-2">
-                <div className="text-component margin-bottom-sm  pt-5 text-center">
-                    <h1>
-                        <b>Mari Membaca </b>
-                    </h1>
-                    <div className="w-100 d-flex justify-content-center">
-                        <p className="col-lg-7 col-12">
-                            Beberapa manfaat membaca buku, salah satunya anda mendapat banyak
-                            referensi yang berguna kedepannya, sehingga buku disebut jendela dunia
-                        </p>
-                    </div>
-                </div>
-                <div className="row  col-lg-8 col-12 mx-lg-auto mx-0 pt-3  mb-5">
-                    <div className="d-flex">
-                        <input
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                            onChange={handleSearch}
-                        />
-                        {/* <button
-              className="btn btn-search text-white bg-success"
-              type="submit"
-            >
-              Search
-            </button> */}
-                    </div>
-                </div>
-            </Container>
+  const totalCount = filter ? filteredArticle.length : tipsData.length;
 
-            <div className="container">
-                <div className="row row-cols-1 row-cols-md-3 g-4">
-                    {tips.map((tips) => (
-                        <div className="col" key={tips.slug}>
-                            <Link
-                                to={'/tips/' + tips.slug}
-                                className="text-decoration-none text-dark">
-                                <div className="card h-100 card-kegiatan">
-                                    <img
-                                        src={
-                                            window.location.origin +
-                                            '/assets/images/tips/' +
-                                            tips.thumbnail
-                                        }
-                                        alt={tips.judul}
-                                        className="card-img-top img-fluid"
-                                    />
-                                    <div className="card-body ">
-                                        <h5>{tips.judul}</h5>
-                                        <p className="card-text">{tips.tanggal}</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  const currentTableData = useMemo(() => {
+    const firstItemIndex = (currentPage - 1) * PageSize;
+    const lastItemIndex = firstItemIndex + PageSize;
+    return filteredArticle.length > 0
+      ? filteredArticle.slice(firstItemIndex, lastItemIndex)
+      : tipsData.slice(firstItemIndex, lastItemIndex);
+  }, [currentPage, filteredArticle]);
+
+  function handleFilterSubmit(e) {
+    e.preventDefault();
+    const filteredItems = tipsData.filter((item) =>
+      item.judul.toLowerCase().includes(filter.toLowerCase())
     );
+    if (filteredItems.length === 0) {
+      toast.error(`No Results: ${filter}`);
+    } else {
+      setFilteredArticle(filteredItems);
+      setCurrentPage(1);
+    }
+  }
+
+  return (
+    <section className="container mx-auto flex justify-center items-center max-w-7xl px-4 pb-20">
+      <div>
+        <div className=" flex justify-center ">
+          <div>
+            <Searching
+              title="Mari Membaca"
+              about="Beberapa manfaat membaca buku, salah satunya anda mendapat banyak referensi yang berguna kedepannya, sehingga buku disebut jendela dunia"
+              handleSubmit={handleFilterSubmit}
+              filter={filter}
+              handleFilter={handleFilterChange}
+              filterData={filteredArticle}
+            />
+          </div>
+        </div>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {currentTableData.map((tips) => (
+              <div key={tips.slug}>
+                <Link
+                  to={"/tips/" + tips.slug}
+                  className="text-decoration-none text-black"
+                >
+                  <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img
+                      src={
+                        window.location.origin +
+                        "/assets/images/tips/" +
+                        tips.thumbnail
+                      }
+                      alt={tips.judul}
+                      className="w-full h-auto"
+                    />
+                    <div className="p-4">
+                      <h5 className="text-lg font-semibold">{tips.judul}</h5>
+                      <p className="text-gray-500">{tips.tanggal}</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalCount={totalCount}
+          pageSize={PageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </div>
+    </section>
+  );
 }
 
 export default Tips;
