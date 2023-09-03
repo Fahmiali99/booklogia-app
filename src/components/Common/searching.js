@@ -13,11 +13,11 @@ function Searching({ handleSubmit, filter, handleFilter, title, about }) {
         <div>
           <div className="flex justify-center text-center">
             <div>
-              <h1 className=" text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-dark">
+              <h1 className=" text-2xl md:text-3xl lg:text-4xl font-semibold text-dark">
                 {title}
               </h1>
               <div className="flex justify-center">
-                <p className="pt-4 pb-8 text-secondary text-base w-full lg:w-3/4">
+                <p className="pt-4 pb-8 text-secondary font-sans text-base w-full lg:w-3/4">
                   {about}
                 </p>
               </div>

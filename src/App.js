@@ -12,7 +12,8 @@ import Register from "./pages/Register";
 import Navbar from "./components/Common/navbar";
 import Footer from "./components/Common/footer";
 import Tips from "./pages/Tips";
-// import Artikel from "./pages/Tips/Detail";
+import Artikel from "./pages/Tips/Detail";
+
 // import Thread from "./pages/Forum/Detail";
 function App() {
   return (
@@ -25,8 +26,9 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route exact path="/tips" component={Tips} />
-          {/* <Route exact path="/thread" component={Forum} />
           <Route path="/tips/:slug" component={Artikel} />
+          {/* <Route exact path="/thread" component={Forum} />
+          
           <Route path="/thread/:slug" component={Thread} /> */}
         </Switch>
         <Footer />

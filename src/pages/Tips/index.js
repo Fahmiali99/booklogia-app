@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Searching from "../../components/Common/searching";
 import toast from "react-hot-toast";
 import Pagination from "../../components/Common/pagination";
+
 const PageSize = 6;
 function Tips() {
   const [filter, setFilter] = useState("");
@@ -40,7 +41,7 @@ function Tips() {
   return (
     <section className="container mx-auto flex justify-center items-center max-w-7xl px-4 pb-20">
       <div>
-        <div className=" flex justify-center ">
+        <div className="flex justify-center">
           <div>
             <Searching
               title="Mari Membaca"
@@ -52,6 +53,7 @@ function Tips() {
             />
           </div>
         </div>
+
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {currentTableData.map((tips) => (
@@ -60,7 +62,7 @@ function Tips() {
                   to={"/tips/" + tips.slug}
                   className="text-decoration-none text-black"
                 >
-                  <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <div className="bg-white rounded-lg border overflow-hidden">
                     <img
                       src={
                         window.location.origin +
@@ -70,22 +72,22 @@ function Tips() {
                       alt={tips.judul}
                       className="w-full h-auto"
                     />
-                    <div className="p-4">
+                    <div className="py-5 px-4">
                       <h5 className="text-lg font-semibold">{tips.judul}</h5>
-                      <p className="text-gray-500">{tips.tanggal}</p>
+                      <p className="text-gray-500 font-sans">{tips.tanggal}</p>
                     </div>
                   </div>
                 </Link>
               </div>
             ))}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            totalCount={totalCount}
+            pageSize={PageSize}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalCount={totalCount}
-          pageSize={PageSize}
-          onPageChange={(page) => setCurrentPage(page)}
-        />
       </div>
     </section>
   );
