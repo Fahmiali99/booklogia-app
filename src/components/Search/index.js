@@ -12,7 +12,7 @@ const Search = () => {
   return (
     <>
       <div className="w-full lg:w-3/5 ">
-        <div className="  flex justify-center items-center">
+        <div>
           <form
             className="w-full  pr-4"
             onSubmit={(event) => {
