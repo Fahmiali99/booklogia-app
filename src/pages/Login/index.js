@@ -100,7 +100,7 @@ function Login() {
             <input
               type="submit"
               className={`btn btn-danger px-10 py-2.5 ${
-                validateForm
+                validateForm() // Call validateForm() to check form validation
                   ? "bg-danger text-white rounded-lg"
                   : "opacity-70 bg-danger text-white rounded-lg"
               }`}

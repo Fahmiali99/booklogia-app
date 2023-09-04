@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/authSlice";
 import { Fade as Hamburger } from "hamburger-react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
   const dropdownRef = useRef(null);
+  const dropdownMenuRef = useRef(null); // Separate ref for dropdown content
 
   const handleOpen = () => {
     setOpen(!open);
@@ -24,7 +26,12 @@ function Navbar() {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        dropdownMenuRef.current &&
+        !dropdownMenuRef.current.contains(event.target)
+      ) {
         setOpen(false);
       }
     }
@@ -49,9 +56,9 @@ function Navbar() {
           <div className="hidden pl-5 lg:flex lg:items-center lg:space-x-4">
             {menu.map((e, i) => (
               <div key={i}>
-                <a href={e.href} className="text-base">
+                <Link to={e.href} className="text-base">
                   {e.title}
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -99,7 +106,12 @@ function Navbar() {
                   />
                 </svg>
               </button>
-              <div className="z-10 absolute top-11 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              {/* cant dropdownref */}
+              <div
+                className={`z-10 absolute top-11 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
+                  open ? "hidden" : "open"
+                }`}
+              >
                 <div className={`${drop ? " block" : " hidden"}`}>
                   <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                     <h1 className="font-medium ">{user.nama}</h1>
