@@ -14,7 +14,8 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [drop, setDrop] = useState(false);
   const dropdownRef = useRef(null);
-  const dropdownMenuRef = useRef(null); // Separate ref for dropdown content
+  const dropdownMenuRef = useRef(null);
+  const [activeItem, setActiveItem] = useState("");
 
   const handleOpen = () => {
     setOpen(!open);
@@ -24,15 +25,20 @@ function Navbar() {
     setDrop(!drop);
   };
 
+  const handleMenuItemClick = (item) => {
+    setActiveItem(item);
+  };
+
   useEffect(() => {
     function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target) &&
         dropdownMenuRef.current &&
         !dropdownMenuRef.current.contains(event.target)
       ) {
-        setOpen(false);
+        setDrop(false);
       }
     }
 
@@ -43,20 +49,25 @@ function Navbar() {
   }, []);
 
   return (
-    <nav
-      ref={dropdownRef}
-      className=" bg-warning border-gray-200 dark:bg-gray-900"
-    >
+    <nav ref={dropdownRef} className=" bg-warning border-gray-200 ">
       <div className="container  max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Desktop */}
         <div className="flex items-center">
           <a href="/">
             <img alt="" src={logo} width={150} className="" />{" "}
           </a>
-          <div className="hidden pl-5 lg:flex lg:items-center lg:space-x-4">
+          <div className="hidden pl-10 lg:flex lg:items-center lg:space-x-7">
             {menu.map((e, i) => (
               <div key={i}>
-                <Link to={e.href} className="text-base">
+                <Link
+                  to={e.href}
+                  className={
+                    activeItem === e.title
+                      ? "active text-base font-sans"
+                      : "text-dark"
+                  }
+                  onClick={() => handleMenuItemClick(e.title)}
+                >
                   {e.title}
                 </Link>
               </div>
@@ -74,7 +85,7 @@ function Navbar() {
         {/* Desktop */}
         <div className="hidden md:block lg:flex items-center">
           {isAuthorized ? (
-            <div className="relative">
+            <div className="relative" ref={dropdownMenuRef}>
               <button
                 onClick={handleDropdown}
                 id="dropdownAvatarNameButton"
@@ -107,24 +118,28 @@ function Navbar() {
                 </svg>
               </button>
               {/* cant dropdownref */}
-              <div
-                className={`z-10 absolute top-11 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ${
-                  open ? "hidden" : "open"
-                }`}
-              >
-                <div className={`${drop ? " block" : " hidden"}`}>
-                  <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <h1 className="font-medium ">{user.nama}</h1>
-                    <h1 className="truncate text-secondary">{user.email}</h1>
-                  </div>
-                  <div className="py-2 text-sm text-gray-700 ">
-                    <button
-                      onClick={() => dispatch(logout())}
-                      className="block px-4 w-full text-start py-2 hover:bg-gray-100 "
-                    >
-                      Logout
-                    </button>
-                  </div>
+              <div>
+                <div
+                  className={`z-10 absolute top-11 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 `}
+                >
+                  {drop && (
+                    <div>
+                      <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <h1 className="font-medium ">{user.nama}</h1>
+                        <h1 className="truncate text-secondary">
+                          {user.email}
+                        </h1>
+                      </div>
+                      <div className="py-2 text-sm text-gray-700 ">
+                        <button
+                          onClick={() => dispatch(logout())}
+                          className="block px-4 w-full text-start py-2 hover:bg-gray-100 "
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -158,13 +173,17 @@ function Navbar() {
             <div className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               {menu.map((e, i) => (
                 <div key={i}>
-                  <a
-                    href={e.href}
-                    className="block py-2 pl-3 pr-4 text-dark  md:p-0 "
-                    aria-current="page"
+                  <Link
+                    to={e.href}
+                    className={`block py-2 pl-3 pr-4  md:p-0 ${
+                      activeItem === e.title
+                        ? "active text-base font-sans"
+                        : "text-dark"
+                    }`}
+                    onClick={() => handleMenuItemClick(e.title)} // Set active item on click
                   >
                     {e.title}
-                  </a>
+                  </Link>
                 </div>
               ))}
               <div className="flex items-center py-2 ">

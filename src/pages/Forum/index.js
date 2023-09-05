@@ -55,10 +55,11 @@ function Forum() {
               alt=""
             />
             <div className="flex items-center">
-              <div className="title-inside">
-                <h1>{threadLikes[0].judul}</h1>
+              <div className="title-inside text-dark">
+                <h1 className="text-3xl font-bold">{threadLikes[0].judul}</h1>
                 <p className="mt-3 mb-4">
-                  <span className="font-medium"></span> {threadLikes[0].story}
+                  <span className="font-medium font-sans"></span>{" "}
+                  {threadLikes[0].story}
                 </p>
                 <div className="flex items-center">
                   <img
