@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Searching from "../../components/Common/searching";
 import toast from "react-hot-toast";
 import Pagination from "../../components/Common/pagination";
+import { format, parseISO } from "date-fns";
 
 const PageSize = 6;
 function Tips() {
@@ -74,7 +75,9 @@ function Tips() {
                     />
                     <div className="py-5 px-4">
                       <h5 className="text-lg font-semibold">{tips.judul}</h5>
-                      <p className="text-gray-500 font-sans">{tips.tanggal}</p>
+                      <p className="text-gray-500 font-sans">
+                        {format(parseISO(tips.tanggal), "dd MMM, yyyy")}
+                      </p>
                     </div>
                   </div>
                 </Link>

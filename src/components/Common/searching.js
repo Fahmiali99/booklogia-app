@@ -8,7 +8,7 @@ function Searching({ handleSubmit, filter, handleFilter, title, about }) {
           event.preventDefault();
           handleSubmit(event);
         }}
-        className="container mx-auto flex items-center py-10 lg:py-20 justify-center  md:py-20 px-4  lg:px-0"
+        className="container mx-auto flex items-center py-10 lg:py-20 justify-center  md:py-20  lg:px-0"
       >
         <div>
           <div className="flex justify-center text-center">

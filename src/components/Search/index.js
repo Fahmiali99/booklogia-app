@@ -1,108 +1,146 @@
-import React, { useState } from 'react';
-import { Col, Container, Modal, Row } from 'react-bootstrap';
-import '../../sass/pages/_forum.scss';
-import Desainzero from '../../assets/images/Forum/Desainzero.png';
-import User from '../../assets/images/Forum/User.png';
-import dataThreads from '../../utils/threads.json';
+import React, { useState } from "react";
+import Desainzero from "../../assets/images/Forum/Desainzero.png";
+import User from "../../assets/images/Forum/User.png";
+import dataThreads from "../../utils/threads.json";
 
 const Search = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [search, setSearch] = useState('');
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [search, setSearch] = useState("");
 
-    return (
-        <>
-            <Col className="search mr-2">
-                <Col className="w-100 h-100 d-flex justify-content-center align-items-center ">
-                    <form
-                        action="/action_page.php"
-                        className="d-flex align-items-center form-container">
-                        <input
-                            type="text"
-                            onChange={(e) => setSearch(e.target.value)}
-                            placeholder="Search.."
-                            name="search "
-                            className="search-input p-2 mr-5"
-                        />
+  return (
+    <>
+      <div className="w-full lg:w-3/5 ">
+        <div>
+          <form
+            className="w-full  pr-4"
+            onSubmit={(event) => {
+              event.preventDefault();
+              handleShow(event);
+            }}
+          >
+            <div className="relative">
+              <input
+                type="text"
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search.."
+                name="search"
+                className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+              <button
+                data-modal-target="defaultModal"
+                data-modal-toggle="defaultModal"
+                type="submit"
+                className="text-white absolute right-2.5 bottom-2.5 bg-[#61a1da] hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Search
+              </button>
+            </div>
+          </form>
 
+          {show && (
+            // Modal
+            <div className="w-full h-full flex justify-center items-center">
+              <div className="fixed z-50 w-full lg:inset-y-10 lg:inset-x-4 overflow-x-hidden overflow-y-auto">
+                <div className="flex justify-center items-center h-full   ">
+                  <div className="relative w-full max-w-5xl max-h-full ">
+                    <div className="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
+                      <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                          Terms of Service
+                        </h3>
                         <button
-                            type="button"
-                            className="btn btn-primary mx-md-2 button-search mb-5 mt-5"
-                            onClick={handleShow}>
-                            <i className="fa fa-search pr-3 pl-3 text-white"> </i>
+                          onClick={handleClose}
+                          type="button"
+                          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                          data-modal-hide="defaultModal"
+                        >
+                          <svg
+                            className="w-3 h-3"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 14 14"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                            />
+                          </svg>
+                          <span className="sr-only">Close modal</span>
                         </button>
-                    </form>
+                      </div>
+                      <div className="">
+                        {dataThreads
+                          .filter((val) => {
+                            if (search === "") {
+                              return val;
+                            } else if (
+                              val.judul
+                                .toLowerCase()
+                                .includes(search.toLowerCase())
+                            ) {
+                              return true;
+                            }
+                            return false;
+                          })
+                          .map((val) => {
+                            return (
+                              <div
+                                className="w-full h-full  flex  px-6 py-10"
+                                key={val.id}
+                              >
+                                <img
+                                  className=" rounded-2xl"
+                                  src={Desainzero}
+                                  width={500}
+                                  alt=""
+                                />
 
-                    <Modal size="xl" show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Search</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body className="Modal-Search">
-                            {dataThreads
-                                .filter((val) => {
-                                    if (search === '') {
-                                        return val;
-                                    } else if (
-                                        val.judul.toLowerCase().includes(search.toLowerCase())
-                                    ) {
-                                        return val;
-                                    }
-                                })
-                                .map((val) => {
-                                    return (
-                                        <Row
-                                            className="d-flex align-items-center pb-4"
-                                            style={{ width: '900px' }}
-                                            key={val.id}>
-                                            <Col className="d-flex justify-content-center">
-                                                <img
-                                                    className="img-round"
-                                                    src={Desainzero}
-                                                    alt=""
-                                                    width="75%"
-                                                />
-                                            </Col>
-                                            <Col>
-                                                <div className="d-flex align-items-center pt-3">
-                                                    <div>
-                                                        <h4>{val.judul}</h4>
-                                                        <p className="mt-3 mb-4">
-                                                            <span className="fw-medium"> </span>
-                                                            {val.story}
-                                                            <span className="fa-solid fa-arrow-right-long"></span>
-                                                        </p>
-                                                        <div className="d-flex ">
-                                                            <img
-                                                                src={User}
-                                                                className="bg-secondary rounded"
-                                                                alt=""
-                                                                width="12%"
-                                                            />
-                                                            <Container className=" d-flex align-items-center ml-2">
-                                                                <div>
-                                                                    <h6>
-                                                                        By: {val.penulis}
-                                                                        <br />
-                                                                        <span className="text-sub-blog">
-                                                                            {val.tanggal}
-                                                                        </span>
-                                                                    </h6>
-                                                                </div>
-                                                            </Container>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                    );
-                                })}
-                        </Modal.Body>
-                    </Modal>
-                </Col>
-            </Col>
-        </>
-    );
+                                <div className=" pl-6">
+                                  <div className="text-start">
+                                    <h1 className=" text-2xl">{val.judul}</h1>
+                                    <p className="mt-3 mb-4">
+                                      <span className="font-medium"></span>{" "}
+                                      {val.story}
+                                    </p>
+                                    <div className="flex items-center">
+                                      <img
+                                        src={User}
+                                        className="bg-secondary rounded"
+                                        alt=""
+                                        width="7%"
+                                      />
+                                      <div className="ml-2">
+                                        <h6>
+                                          By: {val.penulis}
+                                          <br />
+                                          <span className="text-sub-blog">
+                                            {val.tanggal}
+                                          </span>
+                                        </h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Search;
