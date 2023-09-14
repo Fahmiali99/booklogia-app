@@ -22,7 +22,7 @@ function Forum() {
     <div>
       <div className=" py-10">
         <div className="container mx-auto flex justify-center">
-          <div className="w-full md:w-9/12 p-5 mt-5">
+          <div className="w-full md:w-9/12 py-5 mt-5">
             <div className="text-center">
               <h1 className="text-3xl font-bold">Temukan Referensi</h1>
               <h1 className="text-3xl font-bold">"Buku"</h1>
@@ -40,14 +40,14 @@ function Forum() {
         </div>
       </div>
 
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto pb-10 pt-0 lg:py-10 lg:px-0">
         <Link
           to={"/thread/" + threadLikes[0].slug}
           className="text-decoration-none text-dark"
         >
           <div
             key={threadLikes[0].slug}
-            className="flex justify-center mt-4 mb-3 gap-6"
+            className="block lg:flex justify-center mt-4 mb-3 gap-6"
           >
             <img
               className="w-full lg:w-6/12 rounded-2xl"
@@ -56,7 +56,9 @@ function Forum() {
             />
             <div className="flex items-center">
               <div className="title-inside text-dark">
-                <h1 className="text-3xl font-bold">{threadLikes[0].judul}</h1>
+                <h1 className="text-lg lg:text-3xl font-bold">
+                  {threadLikes[0].judul}
+                </h1>
                 <p className="mt-3 mb-4">
                   <span className="font-medium font-sans"></span>{" "}
                   {threadLikes[0].story}
@@ -86,9 +88,9 @@ function Forum() {
         </Link>
       </div>
 
-      <div className="bg-light py-3">
+      <div className="bg-light py-3 px-4 lg:px-0">
         <div className="container mx-auto pb-5">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">
             {threads
               .slice()
               .sort((a, b) => b.id - a.id)
