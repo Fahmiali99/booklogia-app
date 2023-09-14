@@ -35,7 +35,7 @@ function Pagination(props) {
 
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <div className="pt-20">
+    <div className=" pt-16">
       <ul
         className={classnames("flex justify-center gap-1 text-xs font-medium", {
           className,
