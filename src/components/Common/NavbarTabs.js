@@ -4,13 +4,13 @@ import { useState } from "react";
 function NavbarTabs({ data }) {
   const [openTab, setOpenTab] = useState(1);
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap px-4">
       <div className="w-full justify-center ">
         <div className="flex space-x-7 justify-center pt-8 ">
           <div className="bg-[#ffebad] flex p-2 lg:p-4 rounded-lg ">
             {data?.map((menu, idx) => (
               <div key={idx}>
-                <div className="-mb-px last:mr-0 flex-auto text-center px-2">
+                <div className="last:mr-0 flex-auto text-center px-2">
                   <a
                     onClick={(e) => {
                       e.preventDefault();
@@ -34,7 +34,7 @@ function NavbarTabs({ data }) {
           </div>
         </div>
 
-        <div className="pt-4 sm:pt-5 flex-auto px-4">
+        <div className="pt-4 sm:py-5">
           {data.map((content, idx) => (
             <div
               key={idx}

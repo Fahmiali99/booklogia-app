@@ -35,8 +35,7 @@ function Navbar() {
         setOpen(false);
       }
       if (
-        dropdownMenuRef.current &&
-        !dropdownMenuRef.current.contains(event.target)
+        dropdownMenuRef.current && !dropdownMenuRef.current.contains(event.target)
       ) {
         setDrop(false);
       }
@@ -49,14 +48,14 @@ function Navbar() {
   }, []);
 
   return (
-    <nav ref={dropdownRef} className=" bg-warning border-gray-200 ">
-      <div className="container  max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav  className="bg-warning border-gray-200 z-50">
+      <div ref={dropdownRef} className="container max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Desktop */}
-        <div className="flex items-center">
+        <div   className="flex items-center">
           <a href="/">
             <img alt="" src={logo} width={150} className="" />{" "}
           </a>
-          <div className="hidden pl-10 lg:flex lg:items-center lg:space-x-7">
+          <div className="hidden md:flex pl-10 lg:flex lg:items-center md:space-x-7 lg:space-x-7">
             {menu.map((e, i) => (
               <div key={i}>
                 <Link
@@ -78,14 +77,14 @@ function Navbar() {
         <button
           onClick={handleOpen}
           type="button"
-          className="inline-flex  items-center  justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center  justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
           <Hamburger toggled={open} toggle={setOpen} size={23} />
         </button>
         {/* Desktop */}
         <div className="hidden md:block lg:flex items-center">
           {isAuthorized ? (
-            <div className="relative" ref={dropdownMenuRef}>
+            <div className="relative" >
               <button
                 onClick={handleDropdown}
                 id="dropdownAvatarNameButton"
@@ -118,45 +117,30 @@ function Navbar() {
                 </svg>
               </button>
               {/* cant dropdownref */}
-              <div>
-                <div
-                  className={`z-10 absolute top-11 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 `}
-                >
-                  {drop && (
-                    <div>
-                      <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                        <h1 className="font-medium ">{user.nama}</h1>
-                        <h1 className="truncate text-secondary">
-                          {user.email}
-                        </h1>
-                      </div>
-                      <div className="py-2 text-sm text-gray-700 ">
-                        <button
-                          onClick={() => dispatch(logout())}
-                          className="block px-4 w-full text-start py-2 hover:bg-gray-100 "
-                        >
-                          Logout
-                        </button>
-                      </div>
+              <div className={`z-10 absolute top-11 right-0 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 `}>
+                {drop && (
+                  <div>
+                    <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                      <h1 className="font-medium ">{user.nama}</h1>
+                      <h1 className="truncate text-secondary">{user.email}</h1>
                     </div>
-                  )}
-                </div>
+                    <div className="py-2 text-sm text-gray-700 ">
+                      <button
+                        onClick={() => dispatch(logout())} className="block px-4 w-full text-start py-2 hover:bg-gray-100 ">Logout
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ) : (
             <div className="h-full flex items-center space-x-2">
               <a href="/login">
-                <button className="border px-6 py-2 text-dark border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-100 focus:border-orange-100">
-                  Login
-                </button>
+                <button className="border px-6 py-2 text-dark border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-100 focus:border-orange-100">Login</button>
               </a>
-              <span className="text-gray-700 hidden lg:inline-block px-1">
-                or
-              </span>
+              <span className="text-gray-700 hidden lg:inline-block px-1">or</span>
               <a href="/register">
-                <button className="px-4 py-2 text-white bg-orange-500 rounded-lg hover:bg-orange-600 focus:outline-none">
-                  Register
-                </button>
+                <button className="px-4 py-2 text-white bg-orange-500 rounded-lg hover:bg-orange-600 focus:outline-none">Register</button>
               </a>
             </div>
           )}
@@ -180,7 +164,7 @@ function Navbar() {
                         ? "active text-base font-sans"
                         : "text-dark"
                     }`}
-                    onClick={() => handleMenuItemClick(e.title)} // Set active item on click
+                    onClick={() => handleMenuItemClick(e.title)} 
                   >
                     {e.title}
                   </Link>
