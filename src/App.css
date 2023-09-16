@@ -9,3 +9,11 @@ body {
 .active {
   color: #0d6efd;
 }
+
+.overflows::-webkit-scrollbar {
+  width: 0px;
+}
+
+.overflows::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}

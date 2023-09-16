@@ -9,7 +9,6 @@ import { format, parseISO } from "date-fns";
 function Forum({show, setShow, search, setSearch}) {
   const { threads } = useSelector((state) => state.threads);
   
-
   const arraylike = [];
   for (let i = 0; i < threads.length; i++) {
     const element = threads[i];
@@ -19,8 +18,8 @@ function Forum({show, setShow, search, setSearch}) {
 
   const threadLikes = threads.filter((thread) => thread.like === max);
   return (
-    <div>
-      <div className="container max-w-7xl px-4 mx-auto z-0 ">
+    <div className=" ">
+      <div className="container max-w-7xl px-4 mx-auto z-0">
         <div className="flex justify-center py-10  lg:px-0">
           <div className="container mx-auto flex justify-center">
             <div className="w-full md:w-9/12 py-5 mt-5">
@@ -147,7 +146,6 @@ export default Forum;
 export const Example = ({show, setShow}) => {
   const dispatch = useDispatch();
   const { threads } = useSelector((state) => state.threads);
-  
 
   const { isAuthorized, user } = useSelector((state) => state.auth);
   const [inputThread, setInputThread] = useState({
@@ -218,7 +216,7 @@ export const Example = ({show, setShow}) => {
           id="defaultModal"
           tabindex="-1"
           aria-hidden="true"
-          className="fixed top-1/4 lg:top-0 z-50  w-full  overflow-x-hidden overflow-y-auto md:inset-0  max-h-full"
+          className="fixed top-1/4 lg:top-0 z-50  w-full  overflow-x-hidden overflow-y-hidden md:inset-0  max-h-full"
         >
           
           <div className="flex justify-center items-center h-full w-full px-4 sm:px-4 md:px-4 lg:px-0 xl:px-0">

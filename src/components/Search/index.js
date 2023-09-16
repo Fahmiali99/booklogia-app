@@ -40,10 +40,9 @@ const Search = ({show, setShow}) => {
           </form>
           <div className="">
             {show && (
-              // Modal
               <div className="w-full flex justify-center items-center">
-                <div className=" fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div className="flex justify-center items-center h-full   ">
+                <div className=" fixed top-0 left-0 right-0 z-50  w-full p-4 overflow-x-hidden  md:inset-0 h-[calc(100%-1rem)] max-h-full overflows">
+                  <div className="flex justify-center items-center h-full">
                     <div className="relative w-full max-w-5xl max-h-full ">
                       <div className="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
                         <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
@@ -91,17 +90,16 @@ const Search = ({show, setShow}) => {
                             .map((val) => {
                               return (
                                 <div
-                                  className="w-full h-full block lg:flex  px-6 py-10 "
+                                  className="w-full h-full block md:flex lg:flex  px-6 py-10 "
                                   key={val.id}
                                 >
                                   <img
-                                    className=" rounded-2xl w-2/4"
+                                    className=" rounded-2xl w-full sm:w-full md:w-2/4 lg:w-2/4"
                                     src={Desainzero}
-                                    
                                     alt=""
                                   />
 
-                                  <div className=" pl-6">
+                                  <div className="pl-0 pt-4 md:pl-6 lg:pl-6">
                                     <div className="text-start">
                                       <h1 className=" text-2xl">{val.judul}</h1>
                                       <p className="mt-3 mb-4">
@@ -111,9 +109,9 @@ const Search = ({show, setShow}) => {
                                       <div className="flex items-center">
                                         <img
                                           src={User}
-                                          className="bg-secondary rounded"
+                                          className="bg-secondary rounded w-10"
                                           alt=""
-                                          width="7%"
+                                          
                                         />
                                         <div className="ml-2">
                                           <h6>
