@@ -21,7 +21,7 @@ function Old() {
 
   return (
     <div className="pt-5">
-      <div className="hidden lg:block md:block">
+      <div className="hidden sm:hidden md:block lg:block xl:block ">
         <Slider {...settings}>
           {old.map((e, i) => (
             <div key={i} className="px-4">
@@ -37,10 +37,10 @@ function Old() {
           ))}
         </Slider>
       </div>
-      <div className="block lg:hidden md:hidden">
+      <div className="block sm:block md:hidden lg:hidden xl:hidden px-4">
         <Slider {...setting} className="lg:hidden block">
           {old.map((e, i) => (
-            <div key={i} className="px-4">
+            <div key={i}>
               <div className="bg-gray-100">
                 <img
                   src={"/assets/images/review/" + e.image}

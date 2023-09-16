@@ -1,5 +1,4 @@
 import React from "react";
-
 import heroImage from "../../../assets/images/hero.png";
 import handsShowImage from "../../../assets/images/hands-show.png";
 
@@ -21,7 +20,7 @@ const Hero = () => {
               </h1>
 
               <p className=" text-lg py-5 lg:w-10/12 mb-4 mx-auto lg:mx-0 font-sans">
-                Platform ulasan buku yang menjadi tempat berkumpulnya para
+                Platform sharing buku yang menjadi tempat berkumpulnya para
                 penggemar buku yang mencari bacaan baru untuk koleksinya maupun
                 pembaca santai yang ingin mencari bacaan diwaktu senggang
                 mereka.
@@ -52,14 +51,9 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
-          <div className="lg:w-5/12 order-1 lg:order-2">
-            <img src={heroImage} className="hidden lg:block img-fluid" alt="" />
-            <img
-              src={heroImage}
-              className="block lg:hidden img-fluid w-75 mx-auto mb-4 mb-md-5"
-              alt=""
-            />
+          
+          <div className="lg:w-5/12 order-1 lg:order-2 w-full flex justify-center">
+            <img src={heroImage} className="w-full sm:w-3/4 lg:w-full" alt="" />
           </div>
         </div>
       </div>

@@ -10,18 +10,10 @@ const About = () => {
     >
       <div className="flex justify-center container mx-auto max-w-7xl px-4  items-center ">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className=" order-1 lg:order-1 pt-10 lg:pt-0 ">
-            <img
-              src={aboutImage}
-              className="hidden lg:block img-fluid"
-              alt=""
-            />
-            <img
-              src={aboutImage}
-              className="block lg:hidden img-fluid  mx-auto mb-4 mb-md-5"
-              alt=""
-            />
+          <div className=" order-1 lg:order-2 pt-10 lg:pt-0 w-full flex justify-center">
+            <img src={aboutImage} className="w-full sm:w-3/4 lg:w-full" alt="" />
           </div>
+          
           <div className="flex justify-center lg:justify-end order-2 lg:order-2 pl-0 lg:pl-20 pb-10 lg:pb-0">
             <div className=" lg:ps-5 ">
               <div className="text-center lg:text-start pt-3 lg:pt-0">
