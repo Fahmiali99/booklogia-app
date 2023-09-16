@@ -56,10 +56,10 @@ function Register() {
                 Username <span className="text-red-500">*</span>{" "}
               </label>
               <input
-                type="text"
+                type="username"
                 className="input input-bordered w-full rounded-lg"
                 id="exampleInputusername1"
-                aria-describedby="emailHelp"
+                aria-label="input-username"
                 required
                 onChange={(e) => setNama(e.target.value)}
               />
@@ -73,7 +73,7 @@ function Register() {
                 type="email"
                 className="input input-bordered w-full rounded-lg"
                 id="exampleInputEmail1"
-                aria-describedby="emailHelp"
+                aria-label="input-email"
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
