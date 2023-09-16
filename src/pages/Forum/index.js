@@ -21,7 +21,7 @@ function Forum({show, setShow, search, setSearch}) {
   return (
     <div>
       <div className="container max-w-7xl px-4 mx-auto z-0 ">
-        <div className="flex justify-center py-10 px-4 lg:px-0">
+        <div className="flex justify-center py-10  lg:px-0">
           <div className="container mx-auto flex justify-center">
             <div className="w-full md:w-9/12 py-5 mt-5">
               <div className="text-center">
@@ -92,8 +92,8 @@ function Forum({show, setShow, search, setSearch}) {
               {threads
                 .slice()
                 .sort((a, b) => b.id - a.id)
-                .map((thread) => (
-                  <div
+                .map((thread, i) => (
+                  <div key={i}
                     className="text-decoration-none text-dark"
                   >
                     <div className="">
@@ -243,9 +243,9 @@ export const Example = ({show, setShow}) => {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                       />
                     </svg>
