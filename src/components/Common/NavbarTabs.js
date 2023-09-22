@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useState } from "react";
 
 function NavbarTabs({ data }) {
@@ -9,7 +9,7 @@ function NavbarTabs({ data }) {
         <div className="flex space-x-7 justify-center pt-8 ">
           <div className="bg-[#ffebad] flex p-2 lg:p-4 rounded-lg ">
             {data?.map((menu, idx) => (
-              <div key={idx}>
+              <Fragment key={idx}>
                 <div className="last:mr-0 flex-auto text-center px-2">
                   <a
                     onClick={(e) => {
@@ -29,7 +29,7 @@ function NavbarTabs({ data }) {
                     </div>
                   </a>
                 </div>
-              </div>
+              </Fragment>
             ))}
           </div>
         </div>
