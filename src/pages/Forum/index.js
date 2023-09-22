@@ -18,9 +18,8 @@ function Forum({show, setShow, search, setSearch}) {
 
   const threadLikes = threads.filter((thread) => thread.like === max);
   return (
-    <div className=" ">
-      <div className="container max-w-7xl px-4 mx-auto z-0">
-        <div className="flex justify-center py-10  lg:px-0">
+    <div className="container max-w-7xl px-4 mx-auto z-0">
+      <div className="flex justify-center py-10  lg:px-0">
           <div className="container mx-auto flex justify-center">
             <div className="w-full md:w-9/12 py-5 mt-5">
               <div className="text-center">
@@ -39,7 +38,6 @@ function Forum({show, setShow, search, setSearch}) {
             </div>
           </div>
         </div>
-
         <div className="  pb-10 pt-0  lg:py-10 px-0 lg:px-0">
           <div className="text-decoration-none text-dark">
             <div
@@ -135,7 +133,6 @@ function Forum({show, setShow, search, setSearch}) {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
@@ -261,6 +258,7 @@ export const Example = ({show, setShow}) => {
                         type="text"
                         autoFocus
                         name="title"
+                        aria-label="input-title"
                         value={inputThread.title}
                         onChange={handleChange}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -273,6 +271,7 @@ export const Example = ({show, setShow}) => {
                       <input
                         type="text"
                         name="writer"
+                        aria-label="input-penulis"
                         value={user.nama}
                         onChange={handleChange}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -286,6 +285,7 @@ export const Example = ({show, setShow}) => {
                       <input
                         type="date"
                         name="date"
+                        aria-label="input-date"
                         value={inputThread.date}
                         onChange={handleChange}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -298,6 +298,7 @@ export const Example = ({show, setShow}) => {
                       <textarea
                         rows={3}
                         name="description"
+                        xaria-label="input-description"
                         value={inputThread.description}
                         onChange={handleChange}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

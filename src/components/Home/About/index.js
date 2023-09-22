@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section
       id="about-section"
-      className="flex  w-full items-center pt-10 lg:pt-0"
+      className="flex w-full items-center pt-10 lg:pt-0"
     >
       <div className="flex justify-center container mx-auto max-w-7xl px-4  items-center ">
         <div className="flex flex-col lg:flex-row items-center">

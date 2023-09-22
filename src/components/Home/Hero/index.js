@@ -8,7 +8,7 @@ const Hero = () => {
       id="hero-section"
       className="container mx-auto flex items-center max-w-7xl px-4 min-h-[calc(90vh-3rem)] pt-10 lg:pt-0"
     >
-      <div className=" ">
+      <div>
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-7/12 order-2 lg:order-1">
             <div className="text-center lg:text-left pt-3 lg:pt-0">
