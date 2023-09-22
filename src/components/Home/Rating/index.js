@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ratingsData from "../../../utils/ratings.json";
 import { AiFillStar } from "react-icons/ai";
 
@@ -21,8 +21,8 @@ const Rating = () => {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3 pb-10">
             {ratingsData.map((rating) => (
-              <div key={rating.id} className="mb-3 md:mb-0">
-                <div className="bg-white border rounded-lg h-full py-6 px-4 ">
+              <Fragment key={rating.id}>
+                <div className="bg-white border rounded-lg h-full py-6 px-4 mb-3 md:mb-0">
                   <div className="mb-3 flex justify-center">
                     <img
                       src={"/assets/images/ratings/" + rating.foto}
@@ -36,16 +36,15 @@ const Rating = () => {
 
                   <div className="mb-2 flex justify-center">
                     {Array.from(Array(rating.bintang), (e, i) => (
-                      <AiFillStar
-                        className="fas fa-star text-warning"
-                        key={i}
-                      />
+                      <Fragment key={i}>
+                        <AiFillStar className="text-warning"/>
+                      </Fragment>
                     ))}
                   </div>
 
                   <p className="text-center text-md">{rating.penilaian}</p>
                 </div>
-              </div>
+              </Fragment>
             ))}
           </div>
         </div>
