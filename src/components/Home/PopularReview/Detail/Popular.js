@@ -31,7 +31,7 @@ function Popular() {
                   alt=""
                   className="w-full"
                 />
-                <h1 className="text-start text-lg pt-5 h-24 px-3">{e.title}</h1>
+                <h1 className="text-start md:text-md lg:text-lg pt-5 h-24 px-3">{e.title}</h1>
               </div>
             </div>
           ))}
@@ -47,7 +47,7 @@ function Popular() {
                   alt=""
                   className="w-full"
                 />
-                <h1 className="text-start text-lg pt-5 h-24 px-3">{e.title}</h1>
+                <h1 className="text-start md:text-md lg:text-lg pt-5 h-24 px-3">{e.title}</h1>
               </div>
             </div>
           ))}

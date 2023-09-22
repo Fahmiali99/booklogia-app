@@ -1,13 +1,13 @@
-import React from "react";
-import Hero from "../../components/Home/Hero";
-import About from "../../components/Home/About";
-import PopularReview from "../../components/Home/PopularReview";
-import Rating from "../../components/Home/Rating";
+import React, { lazy } from "react";
+const Hero = lazy(() => import('../../components/Home/Hero'));
+const About = lazy(() => import('../../components/Home/About'));
+const PopularReview = lazy(() => import('../../components/Home/PopularReview'));
+const Rating = lazy(() => import('../../components/Home/Rating'));
 
 function Home() {
   return (
     <>
-      <Hero />
+      <Hero />  
       <About />
       <PopularReview />
       <Rating />

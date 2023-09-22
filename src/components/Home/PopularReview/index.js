@@ -1,10 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import NavbarTabs from "../../Common/NavbarTabs";
-import News from "./Detail/News";
-import Popular from "./Detail/Popular";
-import Old from "./Detail/Old";
+const NavbarTabs = lazy(() => import('../../Common/NavbarTabs'));
+const Popular = lazy(() => import('./Detail/Popular'));
+const News = lazy(() => import('./Detail/News'));
+const Old = lazy(() => import('./Detail/Old'));
+
 
 const PopularReview = () => {
   const tabMenu = [

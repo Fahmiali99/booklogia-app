@@ -43,7 +43,7 @@ const Rating = () => {
                     ))}
                   </div>
 
-                  <p className="text-center">{rating.penilaian}</p>
+                  <p className="text-center text-md">{rating.penilaian}</p>
                 </div>
               </div>
             ))}
