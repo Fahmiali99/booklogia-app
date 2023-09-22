@@ -6,12 +6,12 @@ import Rating from "../../components/Home/Rating";
 
 function Home() {
   return (
-    <div className="home-page">
+    <>
       <Hero />
       <About />
       <PopularReview />
       <Rating />
-    </div>
+    </>
   );
 }
 

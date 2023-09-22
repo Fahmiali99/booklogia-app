@@ -87,6 +87,7 @@ function Register() {
                 type={passwordType}
                 className="input input-bordered w-full rounded-lg"
                 id="exampleInputPassword1"
+                aria-label="input-password"
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
