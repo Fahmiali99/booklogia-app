@@ -10,7 +10,7 @@ const About = () => {
     >
       <div className="flex justify-center container mx-auto max-w-7xl px-4  items-center ">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className=" order-1 lg:order-2 pt-10 lg:pt-0 w-full flex justify-center">
+          <div className=" order-1 lg:order-2 pt-10 lg:pt-0 pb-5 lg-pb-0 w-full flex justify-center">
             <img src={aboutImage} className="w-full sm:w-3/4 lg:w-full" alt="" />
           </div>
           
@@ -21,19 +21,19 @@ const About = () => {
                   Mengenal tentang Booklogia <br /> lebih dalam yuk!
                 </h1>
 
-                <p className="text-lg py-5  lg:w-10/12  mx-auto lg:mx-0 font-sans">
+                <p className=" md:text-md lg:text-lg py-5 md:w-9/12 lg:w-10/12 mb-4 mx-auto lg:mx-0 font-sans">
                   Kamu ingin mencari bacaan menarik? bingung ini memilih cerita
                   seperti apa? lagi malas membaca tapi ingin tau seperti apa
                   ceritanya? Booklogi bisa membantumu.
                 </p>
 
-                <div className="pb-6 flex justify-center lg:justify-start">
-                  <img src={aboutPhotosImage} className="img-fluid" alt="" />
+                <div className="lg:w-5/12 order-1 lg:order-2 w-full flex justify-center">
+                  <img src={aboutPhotosImage} className="pb-7 md:pb-7 lg:pb-0" alt="" />
                 </div>
 
                 <a
                   href="/register"
-                  className="focus:outline-none py-2.5 text-white bg-success hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                  className=" focus:outline-none py-2.5 text-white bg-success hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                 >
                   Get Started
                 </a>

@@ -14,12 +14,12 @@ const Hero = () => {
             <div className="text-center lg:text-left pt-3 lg:pt-0">
               <h1
                 data-aos="fade-up"
-                className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl  "
+                className="text-dark font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl  "
               >
                 Anda Butuh Buku? <br /> Booklogia Solusinya
               </h1>
 
-              <p className=" text-lg py-5 lg:w-10/12 mb-4 mx-auto lg:mx-0 font-sans">
+              <p className=" md:text-md lg:text-lg py-5 md:w-9/12 lg:w-10/12 mb-4 mx-auto lg:mx-0 font-sans">
                 Platform sharing buku yang menjadi tempat berkumpulnya para
                 penggemar buku yang mencari bacaan baru untuk koleksinya maupun
                 pembaca santai yang ingin mencari bacaan diwaktu senggang
@@ -52,7 +52,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="lg:w-5/12 order-1 lg:order-2 w-full flex justify-center">
+          <div className="lg:w-5/12 order-1 lg:order-2 w-full flex justify-center pb-5 lg-pb-0">
             <img src={heroImage} className="w-full sm:w-3/4 lg:w-full" alt="" />
           </div>
         </div>
