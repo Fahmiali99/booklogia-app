@@ -22,7 +22,7 @@ function NavbarTabs({ data }) {
                       className={`text-md hover:text-primary-500 rounded-lg   ${
                         openTab === menu.id
                           ? " bg-[#fb9108] px-4 lg:px-7 py-2 lg:py-2.5 text-white"
-                          : "bg-[#f4a641] px-4 lg:px-7 py-2 lg:py-2.5 text-white"
+                          : "bg-[#f4a641] hover:bg-[#fb9108] px-4 lg:px-7 py-2 lg:py-2.5 text-white"
                       }`}
                     >
                       {menu.name}
