@@ -13,7 +13,7 @@ const Rating = () => {
                 <h1 className="text-dark  font-bold text-2xl  md:text-3xl lg:text-4xl xl:text-4xl">
                   Tanggapan Pembaca
                 </h1>
-                <p className="pt-3  font-sans pb-10">
+                <p className="pt-3 font-sans pb-10">
                   Masih ragu untuk bergabung ? <br /> Berikut tanggapan
                   orang-orang yang sudah bergabung di Booklogia :
                 </p>
