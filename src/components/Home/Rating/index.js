@@ -29,7 +29,7 @@ const Rating = () => {
                         src={"/assets/images/ratings/" + rating.foto}
                         className=" mb-3"
                         width={75}
-                        alt=""
+                        alt={rating.nama}
                       />
                     </div>
 

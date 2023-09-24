@@ -12,7 +12,7 @@ const About = () => {
         <div className="flex justify-center container mx-auto max-w-7xl px-4  items-center ">
           <div className="flex flex-col md:flex-row  lg:flex-row items-center">
             <div className=" order-1 lg:order-2 pt-10 lg:pt-0 pb-5 lg-pb-0 w-full flex justify-center">
-              <img src={aboutImage} className="w-9/12 sm:w-9/12 md:w-full lg:w-full" alt="" />
+              <img src={aboutImage} className="w-9/12 sm:w-9/12 md:w-full lg:w-full" alt={aboutImage} />
             </div>
             
             <div className="w-full flex justify-center sm:justify-center md:justify-end lg:justify-end xl:justify-end  order-2 lg:order-2 pl-0 lg:pl-20 ">
@@ -34,7 +34,7 @@ const About = () => {
                   </div>
 
                   <div className="pb-10 lg:w-5/12 order-1 md:order-2 lg:order-2 w-full flex justify-center sm:justify-center md:justify-start">
-                    <img src={aboutPhotosImage} className="" alt="" />
+                    <img src={aboutPhotosImage} className="" alt={aboutPhotosImage} />
                   </div>
 
                   <a
