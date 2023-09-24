@@ -46,7 +46,7 @@ const Hero = () => {
               </div>
 
               <div className="flex justify-center md:justify-start lg:justify-start items-center pt-4 mt-3 lg:mt-5">
-                <img src={handsShowImage} className=" w-24 lg:w-32 " alt="" />
+                <img src={handsShowImage} className=" w-24 lg:w-32 " alt={handsShowImage} />
                 <div className="ml-4">
                   <h3 className="text-xl lg:text-2xl">
                     Find Your <br /> Story.
@@ -57,7 +57,7 @@ const Hero = () => {
             </div>
             
             <div className="lg:w-5/12 order-1 md:order-2 lg:order-2 w-full flex justify-center pb-5 lg-pb-0">
-              <img src={heroImage} className=" w-9/12 sm:w-9/12 md:w-full lg:w-full" alt="" />
+              <img src={heroImage} className=" w-9/12 sm:w-9/12 md:w-full lg:w-full" alt={heroImage} />
             </div>
           </div>
         </div>

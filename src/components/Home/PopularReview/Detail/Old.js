@@ -30,7 +30,7 @@ function Old() {
                   <div className="bg-light ">
                     <img
                       src={"/assets/images/review/" + e.image}
-                      alt=""
+                      alt={e.title}
                       className="w-full"
                     />
                     <h1 className="text-start md:text-md lg:text-lg pt-5 h-24 px-3">{e.title}</h1>
@@ -48,7 +48,7 @@ function Old() {
                   <div className="bg-light ">
                     <img
                       src={"/assets/images/review/" + e.image}
-                      alt=""
+                      alt={e.title}
                       className="w-full"
                     />
                     <h1 className="text-start md:text-md lg:text-lg pt-5 h-24 px-3">{e.title}</h1>
