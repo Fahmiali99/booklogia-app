@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { Suspense, lazy, useState } from "react";
+import { Fragment, Suspense, lazy, useState } from "react";
 const Home = lazy(() => import('./pages/Home'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
@@ -17,7 +17,7 @@ function App() {
   const [search, setSearch] = useState(false)
   
   return (
-    <div className="App">
+    <Fragment>
       <div className={show ? "bg-black opacity-20 h-screen fixed  w-full z-50" : ""}/>
       <div className={search ? "bg-black opacity-20 h-screen fixed  w-full z-50" : ""}/>
       <Router>
@@ -39,7 +39,7 @@ function App() {
             <Footer />
           </Suspense>
       </Router>
-    </div>
+    </Fragment>
   );
 }
 

@@ -53,7 +53,7 @@ function Navbar() {
         {/* Desktop */}
         <div   className="flex items-center">
           <a href="/">
-            <img alt="" src={logo} width={150} className="" />{" "}
+            <img src={logo} alt={logo} width={150} className="" />
           </a>
           <div className="hidden md:flex pl-10 lg:flex lg:items-center md:space-x-7 lg:space-x-7">
             {menu.map((e, i) => (
@@ -96,7 +96,7 @@ function Navbar() {
                 <img
                   className="w-9 h-9 mr-2 rounded-full bg-light p-1"
                   src={profil}
-                  alt=""
+                  alt={profil}
                 />
                 <h1 className="text-dark text-base">{user.nama}</h1>
 
@@ -182,7 +182,7 @@ function Navbar() {
                       <img
                         className="w-8 h-8 mr-2 rounded-full focus:outline"
                         src={profil}
-                        alt=""
+                        alt={profil}
                         width={50}
                       />
                       <h1 className="text-base text-dark">{user.nama}</h1>
